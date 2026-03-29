@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Atomic Realm | Interactive Story</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Background Animation: The Quantum Field -->
+    <div class="bg-animation"></div>
+
+    <!-- Section 1: Hero -->
+    <section id="hero" class="section hero">
+        <div class="content">
+            <h1>The Atomic Realm</h1>
+            <p>Scroll downward to descend into the building blocks of matter.</p>
+            <div class="scroll-indicator">↓</div>
+        </div>
+        <!-- Parallax: Represents a wandering electron -->
+        <div class="parallax-shape shape-electron" data-speed="0.8"></div>
+    </section>
+
+    <!-- Section 2: Intro -->
+    <section id="intro" class="section hidden">
+        <div class="content">
+            <h2>Beyond the Visible</h2>
+            <p>Past the cellular level, past the molecules, lies a vast emptiness dictated by probability and energy. Welcome to the core of reality.</p>
+        </div>
+    </section>
+
+    <!-- Section 3: Exploration (Interactive Cards) -->
+    <section id="exploration" class="section hidden left-slide">
+        <div class="content">
+            <h2>Subatomic Particles</h2>
+            <p>Hover over the core components to analyze their properties.</p>
+            <div class="card-grid">
+                <div class="card proton">
+                    <h3>Protons (+)</h3>
+                    <p class="card-desc">Heavy, positively charged particles anchoring the nucleus.</p>
+                </div>
+                <div class="card neutron">
+                    <h3>Neutrons (0)</h3>
+                    <p class="card-desc">Neutral particles providing nuclear stability and mass.</p>
+                </div>
+                <div class="card electron">
+                    <h3>Electrons (-)</h3>
+                    <p class="card-desc">Lightweight, negatively charged particles in constant, chaotic orbit.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 4: Insight (Interactive Toggle) -->
+    <section id="insight" class="section hidden scale-up">
+        <div class="content">
+            <h2>Energy States</h2>
+            <p>Apply external energy to observe electron excitation.</p>
+            
+            <div class="toggle-container">
+                <span class="toggle-label">Ground State</span>
+                <label class="switch">
+                    <input type="checkbox" id="energy-toggle">
+                    <span class="slider round"></span>
+                </label>
+                <span class="toggle-label">Excited State</span>
+            </div>
+            
+            <p id="energy-readout" class="readout">System stable. Electrons in lowest energy orbitals.</p>
+        </div>
+        <!-- Parallax: Represents the heavy nucleus -->
+        <div class="parallax-shape shape-nucleus" data-speed="-0.2"></div>
+    </section>
+
+<!-- Section 5: Conclusion (Interactive Bonding) -->
+    <section id="conclusion" class="section hidden">
+        <div class="content">
+            <h2>The Quantum Cloud</h2>
+            <p>Matter is not solid. It is a trembling web of forces, waiting to connect.</p>
+            
+            <!-- The Visual Bonding Stage -->
+            <div id="bonding-stage" class="bonding-stage">
+                <div class="atom atom-left">H</div>
+                <div class="bond-line"></div>
+                <div class="atom atom-right">H</div>
+            </div>
+
+            <button id="bond-btn" class="interactive-btn">Initiate Bonding</button>
+        </div>
+    </section>
+
+    <!-- Custom Sleek Notification (Replaces the alert) -->
+    <div id="custom-toast" class="toast-notification">
+        <span class="toast-icon">✓</span>
+        <span class="toast-message">Covalent Bond Established! H₂ Molecule Formed.</span>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,269 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&display=swap');
+
+/* --- Reset & Base Styles --- */
+* { box-sizing: border-box; }
+body, html {
+    margin: 0; padding: 0;
+    font-family: 'Space Grotesk', sans-serif;
+    background-color: #0a0f12; /* Dark carbon */
+    color: #e0f2f1;
+    overflow-x: hidden;
+}
+
+/* --- Animation 1: Animated Quantum Field Background --- */
+.bg-animation {
+    position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+    background: radial-gradient(circle at 50% 50%, #112222 0%, #0a0f12 100%);
+    z-index: -1;
+    animation: quantumFluctuation 8s infinite alternate ease-in-out;
+}
+@keyframes quantumFluctuation {
+    0% { opacity: 0.7; transform: scale(1); filter: hue-rotate(0deg); }
+    100% { opacity: 1; transform: scale(1.05); filter: hue-rotate(15deg); }
+}
+
+/* --- Layout --- */
+.section {
+    min-height: 100vh; display: flex;
+    align-items: center; justify-content: center;
+    padding: 2rem; text-align: center; position: relative;
+}
+.content { 
+    width: 100%; /* Ensures it takes up the full flex space */
+    max-width: 800px; 
+    margin: 0 auto; /* Keeps the container dead center */
+    z-index: 2; 
+}
+
+/* --- Typography & Heading Glow Effects --- */
+h1 { font-size: clamp(3rem, 8vw, 6rem); margin-bottom: 1rem; letter-spacing: -2px; }
+h2 { font-size: clamp(2rem, 5vw, 4rem); color: #39ff14; /* Neon scientific green */ }
+p { font-size: 1.2rem; line-height: 1.6; opacity: 0.85; }
+
+h1, h2, h3 {
+    transition: text-shadow 0.3s ease, color 0.3s ease;
+}
+
+/* Hero Heading Glow (White/Cyan) */
+h1:hover {
+    text-shadow: 0 0 25px rgba(224, 242, 241, 0.8);
+}
+
+/* Section Heading Glow (Neon Green) */
+h2:hover {
+    text-shadow: 0 0 20px rgba(57, 255, 20, 0.8);
+}
+
+/* --- Animation 2: Bouncing Indicator --- */
+.scroll-indicator {
+    margin-top: 3rem; font-size: 2rem; opacity: 0.7; color: #39ff14;
+    animation: bounce 2s infinite;
+}
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-20px); }
+    60% { transform: translateY(-10px); }
+}
+
+/* --- Scroll Effect 1: Reveal Animations (FIXED SPECIFICITY) --- */
+.hidden {
+    opacity: 0; filter: blur(8px); transform: translateY(15%);
+    transition: all 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.hidden.left-slide { transform: translateX(-30%); }
+.hidden.scale-up { transform: scale(0.8); }
+
+/* By using .hidden.show, we beat the specificity of .hidden.left-slide */
+.hidden.show { 
+    opacity: 1; 
+    filter: blur(0); 
+    transform: translateY(0) translateX(0) scale(1); 
+}
+
+/* --- Scroll Effect 2: Parallax Shapes --- */
+.parallax-shape {
+    position: absolute; border-radius: 50%;
+    z-index: 1;
+}
+.shape-electron { 
+    width: 150px; height: 150px; top: 15%; left: 15%; 
+    background: radial-gradient(circle, #00e5ff, transparent);
+    filter: blur(20px); opacity: 0.6;
+}
+.shape-nucleus { 
+    width: 350px; height: 350px; bottom: 5%; right: -5%; 
+    background: radial-gradient(circle, #39ff14, #0a0f12);
+    filter: blur(40px); opacity: 0.3;
+}
+
+/* --- Interactive Element 1: Cards (FIXED CENTERING) --- */
+.card-grid {
+    display: flex; 
+    flex-wrap: wrap;
+    justify-content: center; /* This guarantees absolute centering */
+    align-items: stretch;
+    gap: 1.5rem; 
+    margin-top: 3rem;
+}
+.card {
+    flex: 1 1 220px; /* Allows cards to grow and shrink uniformly */
+    max-width: 260px; /* Prevents them from stretching too wide on massive screens */
+    background: rgba(255, 255, 255, 0.03); 
+    border: 1px solid rgba(57, 255, 20, 0.2);
+    padding: 2rem; 
+    border-radius: 10px; 
+    cursor: pointer;
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
+}
+.card:hover {
+    transform: translateY(-15px) scale(1.02); 
+}
+
+/* Card Outer Glow Themes */
+.card.proton:hover { box-shadow: 0 10px 30px rgba(255, 50, 50, 0.4); border-color: #ff3232; }
+.card.neutron:hover { box-shadow: 0 10px 30px rgba(200, 200, 200, 0.4); border-color: #cccccc; }
+.card.electron:hover { box-shadow: 0 10px 30px rgba(0, 229, 255, 0.4); border-color: #00e5ff; }
+
+.card h3 { margin-top: 0; }
+.card-desc { font-size: 1rem; opacity: 0; transition: opacity 0.3s ease; }
+.card:hover .card-desc { opacity: 1; }
+
+/* Card Heading Glows (Particle-specific colors) */
+.card.proton h3 { transition: text-shadow 0.3s ease; }
+.card.proton:hover h3 { text-shadow: 0 0 15px #ff3232; }
+
+.card.neutron h3 { transition: text-shadow 0.3s ease; }
+.card.neutron:hover h3 { text-shadow: 0 0 15px #cccccc; }
+
+.card.electron h3 { transition: text-shadow 0.3s ease; }
+.card.electron:hover h3 { text-shadow: 0 0 15px #00e5ff; }
+
+/* --- Interactive Element 2: Toggle --- */
+.toggle-container {
+    display: flex; align-items: center; justify-content: center; gap: 1.5rem; margin: 2rem 0;
+}
+.switch { position: relative; display: inline-block; width: 64px; height: 34px; }
+.switch input { opacity: 0; width: 0; height: 0; }
+.slider {
+    position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0;
+    background-color: rgba(255,255,255,0.1); transition: .4s; border-radius: 34px;
+    border: 1px solid rgba(255,255,255,0.2);
+}
+.slider:before {
+    position: absolute; content: ""; height: 24px; width: 24px;
+    left: 4px; bottom: 4px; background-color: #00e5ff; transition: .4s; border-radius: 50%;
+    box-shadow: 0 0 10px #00e5ff;
+}
+input:checked + .slider { background-color: rgba(57, 255, 20, 0.2); border-color: #39ff14; }
+input:checked + .slider:before { 
+    transform: translateX(30px); 
+    background-color: #39ff14; 
+    box-shadow: 0 0 15px #39ff14;
+}
+.readout { font-family: monospace; color: #00e5ff; font-size: 1.1rem; letter-spacing: 1px; }
+
+/* --- Interactive Element 3: Button --- */
+.interactive-btn {
+    background: transparent; color: #39ff14; border: 2px solid #39ff14;
+    padding: 1rem 2.5rem; font-size: 1.2rem; font-family: inherit; font-weight: bold;
+    cursor: pointer; border-radius: 5px; margin-top: 2rem; 
+    text-transform: uppercase; letter-spacing: 2px;
+    transition: all 0.3s ease;
+}
+.interactive-btn:hover {
+    background: #39ff14; color: #0a0f12;
+    box-shadow: 0 0 30px rgba(57, 255, 20, 0.6); transform: translateY(-3px);
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 768px) {
+    .card-grid { flex-direction: column; align-items: center; }
+    .card { max-width: 100%; width: 100%; }
+    .shape-electron, .shape-nucleus { display: none; } /* Improve mobile performance */
+    .toggle-container { flex-direction: column; gap: 1rem; }
+}
+
+/* --- Interactive Bonding Animation --- */
+.bonding-stage {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 3rem 0;
+    position: relative;
+    gap: 120px; /* Initial distance apart */
+    transition: gap 1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.atom {
+    width: 80px; 
+    height: 80px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(0, 229, 255, 0.1), #0a0f12);
+    border: 2px solid #00e5ff; /* Cyan initially */
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
+    font-size: 2.5rem; 
+    font-weight: bold; 
+    color: #00e5ff;
+    box-shadow: 0 0 20px rgba(0, 229, 255, 0.3);
+    z-index: 2;
+    transition: all 1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.bond-line {
+    position: absolute;
+    height: 6px;
+    background: #39ff14; /* Neon green bond */
+    width: 0; /* Hidden initially */
+    box-shadow: 0 0 15px #39ff14;
+    transition: width 1s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 1;
+}
+
+/* The state triggered by JavaScript */
+.bonding-stage.is-bonded {
+    gap: 60px; /* Pull them closer together */
+}
+
+.bonding-stage.is-bonded .bond-line {
+    width: 140px; /* Draw the line between them */
+}
+
+.bonding-stage.is-bonded .atom {
+    border-color: #39ff14; /* Shift to Neon Green */
+    color: #39ff14;
+    box-shadow: 0 0 30px rgba(57, 255, 20, 0.5);
+    background: radial-gradient(circle, rgba(57, 255, 20, 0.15), #0a0f12);
+}
+
+/* --- Custom Toast Notification --- */
+.toast-notification {
+    position: fixed; 
+    bottom: -100px; /* Hidden off-screen initially */
+    left: 50%; 
+    transform: translateX(-50%);
+    background: rgba(10, 15, 18, 0.95);
+    border: 1px solid #39ff14;
+    color: #e0f2f1; 
+    padding: 1rem 2rem; 
+    border-radius: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8), 0 0 20px rgba(57, 255, 20, 0.2);
+    transition: bottom 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    z-index: 100; 
+    font-family: monospace; 
+    display: flex; 
+    align-items: center; 
+    gap: 15px;
+}
+
+/* Added by JS to slide it up */
+.toast-notification.show-toast { 
+    bottom: 40px; 
+}
+
+.toast-icon { 
+    color: #39ff14; 
+    font-size: 1.5rem; 
+    font-weight: bold;
+}
