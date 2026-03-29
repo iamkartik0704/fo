@@ -3,97 +3,87 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Atomic Realm | Interactive Story</title>
+    <title>The Atomic Realm</title>
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Background Animation: The Quantum Field -->
-    <div class="bg-animation"></div>
+    <div class="q-field"></div>
 
-    <!-- Section 1: Hero -->
-    <section id="hero" class="section hero">
-        <div class="content">
+    <section id="top-banner" class="pane top-banner">
+        <div class="wrap">
             <h1>The Atomic Realm</h1>
             <p>Scroll downward to descend into the building blocks of matter.</p>
-            <div class="scroll-indicator">↓</div>
+            <div class="scroll-tick">↓</div>
         </div>
-        <!-- Parallax: Represents a wandering electron -->
-        <div class="parallax-shape shape-electron" data-speed="0.8"></div>
+        <div class="p-shape e-shape" data-spd="0.8"></div>
     </section>
 
-    <!-- Section 2: Intro -->
-    <section id="intro" class="section hidden">
-        <div class="content">
+    <section id="intro" class="pane reveal-item">
+        <div class="wrap">
             <h2>Beyond the Visible</h2>
             <p>Past the cellular level, past the molecules, lies a vast emptiness dictated by probability and energy. Welcome to the core of reality.</p>
         </div>
     </section>
 
-    <!-- Section 3: Exploration (Interactive Cards) -->
-    <section id="exploration" class="section hidden left-slide">
-        <div class="content">
+    <section id="explore" class="pane reveal-item slide-in-l">
+        <div class="wrap">
             <h2>Subatomic Particles</h2>
             <p>Hover over the core components to analyze their properties.</p>
-            <div class="card-grid">
-                <div class="card proton">
+            <div class="particle-wrapper">
+                <div class="p-card proton">
                     <h3>Protons (+)</h3>
-                    <p class="card-desc">Heavy, positively charged particles anchoring the nucleus.</p>
+                    <p class="desc">Heavy, positively charged particles anchoring the nucleus.</p>
                 </div>
-                <div class="card neutron">
+                <div class="p-card neutron">
                     <h3>Neutrons (0)</h3>
-                    <p class="card-desc">Neutral particles providing nuclear stability and mass.</p>
+                    <p class="desc">Neutral particles providing nuclear stability and mass.</p>
                 </div>
-                <div class="card electron">
+                <div class="p-card electron">
                     <h3>Electrons (-)</h3>
-                    <p class="card-desc">Lightweight, negatively charged particles in constant, chaotic orbit.</p>
+                    <p class="desc">Lightweight, negatively charged particles in constant, chaotic orbit.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Section 4: Insight (Interactive Toggle) -->
-    <section id="insight" class="section hidden scale-up">
-        <div class="content">
+    <section id="insight" class="pane reveal-item pop-in">
+        <div class="wrap">
             <h2>Energy States</h2>
             <p>Apply external energy to observe electron excitation.</p>
             
-            <div class="toggle-container">
-                <span class="toggle-label">Ground State</span>
-                <label class="switch">
-                    <input type="checkbox" id="energy-toggle">
-                    <span class="slider round"></span>
+            <div class="state-switcher">
+                <span class="lbl">Ground State</span>
+                <label class="sw">
+                    <input type="checkbox" id="nrg-toggle">
+                    <span class="sl round"></span>
                 </label>
-                <span class="toggle-label">Excited State</span>
+                <span class="lbl">Excited State</span>
             </div>
             
-            <p id="energy-readout" class="readout">System stable. Electrons in lowest energy orbitals.</p>
+            <p id="nrg-out" class="readout">System stable. Electrons in lowest energy orbitals.</p>
         </div>
-        <!-- Parallax: Represents the heavy nucleus -->
-        <div class="parallax-shape shape-nucleus" data-speed="-0.2"></div>
+        <div class="p-shape n-shape" data-spd="-0.2"></div>
     </section>
 
-<!-- Section 5: Conclusion (Interactive Bonding) -->
-    <section id="conclusion" class="section hidden">
-        <div class="content">
+    <section id="outro" class="pane reveal-item">
+        <div class="wrap">
             <h2>The Quantum Cloud</h2>
             <p>Matter is not solid. It is a trembling web of forces, waiting to connect.</p>
             
-            <!-- The Visual Bonding Stage -->
-            <div id="bonding-stage" class="bonding-stage">
-                <div class="atom atom-left">H</div>
-                <div class="bond-line"></div>
-                <div class="atom atom-right">H</div>
+            <div id="bond-area" class="bond-area">
+                <div class="atom a-left">H</div>
+                <div class="bond-path"></div>
+                <div class="atom a-right">H</div>
             </div>
 
-            <button id="bond-btn" class="interactive-btn">Initiate Bonding</button>
+            <button id="trigger-bond" class="action-btn">Initiate Bonding</button>
         </div>
     </section>
 
-    <!-- Custom Sleek Notification (Replaces the alert) -->
-    <div id="custom-toast" class="toast-notification">
-        <span class="toast-icon">✓</span>
-        <span class="toast-message">Covalent Bond Established! H₂ Molecule Formed.</span>
+    <div id="sys-alert" class="sys-alert">
+        <span class="ico">✓</span>
+        <span class="msg">Covalent Bond Established! H₂ Molecule Formed.</span>
     </div>
 
     <script src="script.js"></script>
